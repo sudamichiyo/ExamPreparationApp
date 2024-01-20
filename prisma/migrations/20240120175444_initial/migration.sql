@@ -1,0 +1,18 @@
+-- CreateTable
+CREATE TABLE "Question" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "question" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Choose" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "question_id" INTEGER NOT NULL,
+    "choose" TEXT NOT NULL,
+    "correct" BOOLEAN NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    CONSTRAINT "Choose_question_id_fkey" FOREIGN KEY ("question_id") REFERENCES "Question" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
