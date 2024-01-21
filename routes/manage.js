@@ -71,4 +71,38 @@ router.get('/edit/:id', async(req, res, next) => {
     res.render('edit', data);
 });
 
+router.post('/edit/:id', async (req, res, next) => {
+    // console.log(req.body.choose_text);
+    // console.log(req.body.choose);
+    // 問題文の更新
+    const id = +req.params.id;
+    const question = await prisma.Question.update({
+        where: {id: id},
+        data:{
+            question: req.body.question
+        }
+    });
+
+    const choosesResult = await prisma.Choose.findMany({
+        where: {question_id: id}
+    })
+
+    // 選択肢の更新
+    for (const [index, text] of Object.entries(req.body.choose_text)) {
+        console.log(`${index}: ${text}`)
+        console.log(+index === +req.body.choose);
+        console.log(+req.body.choose);
+
+        const choose = await prisma.Choose.update({
+            where: {id: choosesResult[index].id},
+            data:{
+               question_id: question.id,
+               choose: text,
+               correct: +index === +req.body.choose 
+            }
+        });
+        console.log(choose);
+      }
+    res.redirect('/manage'); 
+});
 module.exports = router;
