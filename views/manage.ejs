@@ -10,5 +10,16 @@
     <header>
       <h1><%= title %></h1>
     </header>
+
+    <div role="main">
+        <table class="table">
+            <% for (var obj of content) { %>
+            <tr>
+                <td><%= obj.id %></td>
+                <td><%= obj.question %></td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
   </body>
 </html>

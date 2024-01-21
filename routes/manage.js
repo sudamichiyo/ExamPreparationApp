@@ -6,10 +6,14 @@ const prisma = new ps.PrismaClient();
 
 /* GET Manage page. */
 router.get('/', (req, res, next) => {
-    var data = {
-        title: 'Manage',
-    };
-    res.render('manage', data);
+    prisma.Question.findMany().then(questions=> {
+        var data = {
+            title: 'Manage',
+            content: questions
+        }
+        console.log(questions);
+        res.render('manage', data);
+    });
 });
 
 // http://localhost:3000/manage/registerにアクセスされた時
