@@ -9,4 +9,12 @@ router.get('/', (req, res, next) => {
     res.render('manage', data);
 });
 
+// http://localhost:3000/manage/registerにアクセスされた時
+router.get('/register', (req, res, next) => {
+    var data = {
+        title: 'Register',
+    };
+    res.render('register', data);
+});
+
 module.exports = router;
