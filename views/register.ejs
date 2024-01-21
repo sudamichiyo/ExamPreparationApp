@@ -10,5 +10,33 @@
     <header>
       <h1><%= title %></h1>
     </header>
+    <div role="main">
+        <form action="/manage/register/post" method="post">
+            <fieldset>
+                <div>
+                    <legend>問題文を入力して下さい</legend>
+                    <textarea name="question" id="question" cols="30" rows="10"></textarea>
+                </div>
+                <legend>選択肢を入力して下さい(※正解の選択肢にはチェックを入れて下さい)</legend>
+                <div>
+                    <input type="radio" id="choose1" name="choose" value="choose1">
+                    <label for="choose1">ア<input type="text" id="choose-text1"></label>
+
+                    <input type="radio" id="choose2" name="choose" value="choose2">
+                    <label for="choose2">イ<input type="text" id="choose-text2"></label>
+
+                    <input type="radio" id="choose3" name="choose" value="choose3">
+                    <label for="choose3">ウ<input type="text" id="choose-text3"></label>
+
+                    <input type="radio" id="choose4" name="choose" value="choose4">
+                    <label for="choose4">エ<input type="text" id="choose-text4"></label>
+                </div>
+                <div>
+                    <button type="submit">登録</button>
+                </div>
+            </fieldset>
+        
+        </form>
+    </div>
   </body>
 </html>
