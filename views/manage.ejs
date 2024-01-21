@@ -17,9 +17,11 @@
             <tr>
                 <td><%= obj.id %></td>
                 <td><%= obj.question %></td>
+                <td><a href="/manage/edit/<%= obj.id %>">編集</a></td>
             </tr>
             <% } %>
         </table>
+        <a href="/manage/register">登録</a>
     </div>
   </body>
 </html>

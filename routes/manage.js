@@ -51,10 +51,24 @@ router.post('/register', async (req, res, next) => {
         });
         console.log(choose);
       }
-    res.redirect('/manage');
-   
-    
-    
-})
+    res.redirect('/manage'); 
+});
+
+// http://localhost:3000/manage/edit/:idにアクセスされた時
+router.get('/edit/:id', async(req, res, next) => {
+    const id = +req.params.id;
+    const question = await prisma.Question.findUnique({
+        where: {id: id}
+    })
+    const choosesResult = await prisma.Choose.findMany({
+        where: {question_id: id}
+    })
+    var data = {
+        title: 'Edit',
+        question: question,
+        chooses: choosesResult
+    };
+    res.render('edit', data);
+});
 
 module.exports = router;

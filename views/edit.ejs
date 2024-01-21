@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.css" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="container">
+    <header>
+      <h1><%= title %></h1>
+    </header>
+    <div role="main">
+        <form action="/manage/register" method="post">
+            <fieldset>
+                <legend>問題文を入力して下さい</legend>
+                <div>
+                    <textarea name="question" id="question" cols="30" rows="10"><%= question.question%></textarea>
+                </div>
+                <legend>選択肢を入力して下さい(※正解の選択肢にはチェックを入れて下さい)</legend>
+                <div>
+                    <input type="radio" id="choose1" name="choose" value="0" <%= chooses[0].correct ? "checked" : ""%>>
+                    <label for="choose1">ア<input type="text" id="choose-text1" name="choose_text" value="<%= chooses[0].choose %>"></label>
+
+                    <input type="radio" id="choose2" name="choose" value="1" <%= chooses[1].correct ? "checked" : ""%>>
+                    <label for="choose2">イ<input type="text" id="choose-text2" name="choose_text" value="<%= chooses[1].choose %>"></label>
+
+                    <input type="radio" id="choose3" name="choose" value="2" <%= chooses[2].correct ? "checked" : ""%>>
+                    <label for="choose3">ウ<input type="text" id="choose-text3" name="choose_text" value="<%= chooses[2].choose %>"></label>
+
+                    <input type="radio" id="choose4" name="choose" value="3" <%= chooses[3].correct ? "checked" : ""%>>
+                    <label for="choose4">エ<input type="text" id="choose-text4" name="choose_text" value="<%= chooses[3].choose %>"></label>
+                </div>
+                <div>
+                    <button type="submit">保存</button>
+                </div>
+            </fieldset>
+        
+        </form>
+    </div>
+  </body>
+</html>
