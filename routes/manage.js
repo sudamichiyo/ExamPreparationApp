@@ -55,6 +55,7 @@ router.post('/register', async (req, res, next) => {
 });
 
 // http://localhost:3000/manage/edit/:idにアクセスされた時
+// 登録した問題を編集する時
 router.get('/edit/:id', async(req, res, next) => {
     const id = +req.params.id;
     const question = await prisma.Question.findUnique({
@@ -105,4 +106,19 @@ router.post('/edit/:id', async (req, res, next) => {
       }
     res.redirect('/manage'); 
 });
+
+// 登録した問題を削除する時
+router.post('/delete/:id', async (req, res) => {
+    const id = +req.params.id;
+    // 問題に紐付いた選択肢を先に削除
+    const choosesResult = await prisma.Choose.deleteMany({
+        where: {question_id: id}
+    })
+    // 選択肢を削除してから問題文を削除
+    const question = await prisma.Question.delete({
+        where: {id: id}
+    });
+    res.redirect('/manage'); 
+});
+
 module.exports = router;

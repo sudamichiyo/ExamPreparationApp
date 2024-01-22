@@ -18,6 +18,11 @@
                 <td><%= obj.id %></td>
                 <td><%= obj.question %></td>
                 <td><a href="/manage/edit/<%= obj.id %>">編集</a></td>
+                <td>
+                    <form method="post" action="/manage/delete/<%= obj.id %>">
+                        <input type="submit" value="削除" />
+                    </form>
+                </td>
             </tr>
             <% } %>
         </table>
