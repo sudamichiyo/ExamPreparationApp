@@ -19,14 +19,30 @@
                 <td><%= obj.question %></td>
                 <td><a href="/manage/edit/<%= obj.id %>">編集</a></td>
                 <td>
-                    <form method="post" action="/manage/delete/<%= obj.id %>">
-                        <input type="submit" value="削除" />
-                    </form>
+                    <button type="button" onclick="deleteConfirm(<%= obj.id%>)"> 削除 </button>
                 </td>
             </tr>
             <% } %>
         </table>
         <a href="/manage/register">登録</a>
     </div>
+    <script> 
+        function deleteConfirm(id) {
+          if (window.confirm("削除しますか？")) {
+            fetch("/manage/delete/" + id, {
+              method: "DELETE",
+              body: JSON.stringify({
+                id: id
+              }),
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            })
+            .then(setTimeout(() => {
+                location.reload()
+            }, 100))
+          }
+        }
+    </script>
   </body>
 </html>

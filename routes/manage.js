@@ -108,17 +108,17 @@ router.post('/edit/:id', async (req, res, next) => {
 });
 
 // 登録した問題を削除する時
-router.post('/delete/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res, next) => {
     const id = +req.params.id;
     // 問題に紐付いた選択肢を先に削除
-    const choosesResult = await prisma.Choose.deleteMany({
+    await prisma.Choose.deleteMany({
         where: {question_id: id}
     })
     // 選択肢を削除してから問題文を削除
-    const question = await prisma.Question.delete({
+    await prisma.Question.delete({
         where: {id: id}
     });
-    res.redirect('/manage'); 
+    res.sendStatus(200);
 });
 
 module.exports = router;
