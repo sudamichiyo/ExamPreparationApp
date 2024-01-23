@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET Category page. */
+/* GET Quiz page. */
 router.get('/', (req, res, next)=> {
-  res.render('category', { title: 'Category' });
+  res.render('quiz', { title: 'Quiz' });
 });
 
 module.exports = router;
