@@ -11,25 +11,25 @@
       <h1><%= title %></h1>
     </header>
     <div role="main">
-        <form action="/manage/register" method="post">
+        <form action="" method="post">
             <fieldset>
                 <legend>問題文</legend>
                 <div>
-                    <textarea name="question" id="question" cols="30" rows="10"></textarea>
+                    <textarea name="question" id="question" cols="30" rows="10"><%= question.question %></textarea>
                 </div>
                 <legend>選択肢(※正解だと思う選択肢にチェックを入れて下さい)</legend>
                 <div>
                     <input type="radio" id="choose1" name="choose" value="0">
-                    <label for="choose1">ア<input type="text" id="choose-text1" name="choose_text"></label>
+                    <label for="choose1">ア<input type="text" id="choose-text1" name="choose_text" value="<%= chooses[0].choose %>"></label>
 
                     <input type="radio" id="choose2" name="choose" value="1">
-                    <label for="choose2">イ<input type="text" id="choose-text2" name="choose_text"></label>
+                    <label for="choose2">イ<input type="text" id="choose-text2" name="choose_text" value="<%= chooses[1].choose %>"></label>
 
                     <input type="radio" id="choose3" name="choose" value="2">
-                    <label for="choose3">ウ<input type="text" id="choose-text3" name="choose_text"></label>
+                    <label for="choose3">ウ<input type="text" id="choose-text3" name="choose_text" value="<%= chooses[2].choose %>"></label>
 
                     <input type="radio" id="choose4" name="choose" value="3">
-                    <label for="choose4">エ<input type="text" id="choose-text4" name="choose_text"></label>
+                    <label for="choose4">エ<input type="text" id="choose-text4" name="choose_text" value="<%= chooses[3].choose %>"></label>
                 </div>
                 <div>
                     <button>終わる</button>
