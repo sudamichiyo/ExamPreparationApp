@@ -15,6 +15,7 @@ router.get('/', async(req, res, next)=> {
   const chooses = await prisma.Choose.findMany({
     where: {question_id: quiz.id}
   })
+// 取得した問題と選択肢を渡してレンダリングする
   var data = {
     title: 'Quiz',
     question: quiz,
@@ -23,6 +24,19 @@ router.get('/', async(req, res, next)=> {
   res.render('quiz', data);
   console.log( quiz );
   console.log(chooses);
+});
+
+router.get('/correct', async(req, res, next) => {
+    var question_id = +req.query.question_id;
+    var choose = +req.query.choose;
+    // console.log( question_id);
+    const chooses = await prisma.Choose.findMany({
+        where: {question_id: question_id}
+    })
+    const correctIndex = chooses.findIndex((choose) => choose.correct)
+    // console.log(correctIndex);
+
+    res.render('correct',{ title: 'Correct', isCorrect: correctIndex === choose, correctNumber: correctIndex});
 });
 
 module.exports = router;

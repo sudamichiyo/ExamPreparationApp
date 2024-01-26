@@ -11,25 +11,35 @@
       <h1><%= title %></h1>
     </header>
     <div role="main">
-        <form action="" method="post">
+        <form action="/quiz/correct" method="get">
             <fieldset>
+                <input type="hidden" name="question_id" value="<%= question.id %>">
                 <legend>問題文</legend>
                 <div>
-                    <textarea name="question" id="question" cols="30" rows="10"><%= question.question %></textarea>
+                    <p><%= question.question %></p>
                 </div>
                 <legend>選択肢(※正解だと思う選択肢にチェックを入れて下さい)</legend>
                 <div>
-                    <input type="radio" id="choose1" name="choose" value="0">
-                    <label for="choose1">ア<input type="text" id="choose-text1" name="choose_text" value="<%= chooses[0].choose %>"></label>
-
-                    <input type="radio" id="choose2" name="choose" value="1">
-                    <label for="choose2">イ<input type="text" id="choose-text2" name="choose_text" value="<%= chooses[1].choose %>"></label>
-
-                    <input type="radio" id="choose3" name="choose" value="2">
-                    <label for="choose3">ウ<input type="text" id="choose-text3" name="choose_text" value="<%= chooses[2].choose %>"></label>
-
-                    <input type="radio" id="choose4" name="choose" value="3">
-                    <label for="choose4">エ<input type="text" id="choose-text4" name="choose_text" value="<%= chooses[3].choose %>"></label>
+                    <div>
+                        <input type="radio" id="choose1" name="choose" value="0">
+                        <label for="choose1">ア</label>
+                        <p><%= chooses[0].choose %></p>
+                    </div>
+                    <div>
+                        <input type="radio" id="choose2" name="choose" value="1">
+                        <label for="choose2">イ</label>
+                        <p><%= chooses[1].choose %></p>
+                    </div>
+                    <div>
+                        <input type="radio" id="choose3" name="choose" value="2">
+                        <label for="choose3">ウ</label>
+                        <p><%= chooses[2].choose %></p>
+                    </div>
+                    <div>
+                        <input type="radio" id="choose4" name="choose" value="3">
+                        <label for="choose4">エ</label>
+                        <p><%= chooses[3].choose %></p>
+                    </div>
                 </div>
                 <div>
                     <button type="submit">解答する</button>
