@@ -32,6 +32,10 @@
         } %>
         <p>正解は「<%= text %>」です</p>
     <% }%>
-    <button onclick="location.href='/quiz'">次の問題</button>
+    <% if (mode === 'wrong') { %>
+        <button onclick="location.href='/quiz/wrong'">次の問題</button>
+    <% } else { %>
+        <button onclick="location.href='/quiz'">次の問題</button>
+    <% } %>
   </body>
 </html>
