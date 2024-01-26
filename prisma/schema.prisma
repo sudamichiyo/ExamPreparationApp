@@ -16,6 +16,7 @@ model Question {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   chooses Choose[]
+  isWrong Boolean @default(false)
 }
 
 model Choose {

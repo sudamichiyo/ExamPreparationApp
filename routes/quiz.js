@@ -36,6 +36,13 @@ router.get('/correct', async(req, res, next) => {
     const correctIndex = chooses.findIndex((choose) => choose.correct)
     // console.log(correctIndex);
 
+    await prisma.Question.update({
+        where: {id: question_id},
+        data:{
+            isWrong: correctIndex !== choose
+        }
+    });
+
     res.render('correct',{ title: 'Correct', isCorrect: correctIndex === choose, correctNumber: correctIndex});
 });
 
