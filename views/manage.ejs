@@ -17,14 +17,15 @@
             <tr>
                 <td><%= obj.id %></td>
                 <td><%= obj.question %></td>
-                <td><a href="/manage/edit/<%= obj.id %>">編集</a></td>
+                <td><button onclick="location.href='/manage/edit/<%= obj.id %>'">編集</button></td>
                 <td>
                     <button type="button" onclick="deleteConfirm(<%= obj.id%>)"> 削除 </button>
                 </td>
             </tr>
             <% } %>
         </table>
-        <a href="/manage/register">登録</a>
+        <button onclick="location.href='/'">Topに戻る</button>
+        <button onclick="location.href='/manage/register'">登録</button>
     </div>
     <script> 
         function deleteConfirm(id) {
