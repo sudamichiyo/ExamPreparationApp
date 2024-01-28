@@ -11,10 +11,10 @@
       <h1><%= title %></h1>
     </header>
     <% if (isCorrect) { %>
-        <p>⭕️</p>
+        <h2>⭕️</h2>
         <p>正解です！</p>
     <% } else { %>
-        <p>❌</p>
+        <h2>❌</h2>
         <% var text = ''; %>
         <% switch (correctNumber) { 
         case 0:
@@ -33,9 +33,9 @@
         <p>正解は「<%= text %>」です</p>
     <% }%>
     <% if (mode === 'wrong') { %>
-        <button onclick="location.href='/quiz/wrong'">次の問題</button>
+        <button onclick="location.href='/quiz/wrong'" class="btn btn-primary mt-2 mb-2">次の問題</button>
     <% } else { %>
-        <button onclick="location.href='/quiz'">次の問題</button>
+        <button onclick="location.href='/quiz'" class="btn btn-primary mt-2 mb-2">次の問題</button>
     <% } %>
   </body>
 </html>

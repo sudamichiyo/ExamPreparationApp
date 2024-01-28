@@ -13,19 +13,30 @@
 
     <div role="main">
         <table class="table">
-            <% for (var obj of content) { %>
-            <tr>
-                <td><%= obj.id %></td>
-                <td><%= obj.question %></td>
-                <td><button onclick="location.href='/manage/edit/<%= obj.id %>'">編集</button></td>
-                <td>
-                    <button type="button" onclick="deleteConfirm(<%= obj.id%>)"> 削除 </button>
-                </td>
-            </tr>
-            <% } %>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>問題文</th>
+                    <th>編集</th>
+                    <th>削除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var obj of content) { %>
+                <tr>
+                    <td><%= obj.id %></td>
+                    <td><%= obj.question %></td>
+                    <td><button onclick="location.href='/manage/edit/<%= obj.id %>'" class="btn btn-primary">編集</button></td>
+                    <td>
+                        <button type="button" onclick="deleteConfirm(<%= obj.id%>)" class="btn btn-danger"> 削除 </button>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+            
         </table>
-        <button onclick="location.href='/'">Topに戻る</button>
-        <button onclick="location.href='/manage/register'">登録</button>
+        <button onclick="location.href='/'" class="btn btn-secondary ms-2 me-2">Topに戻る</button>
+        <button onclick="location.href='/manage/register'" class="btn btn-primary ms-2 me-2">登録</button>
     </div>
     <script> 
         function deleteConfirm(id) {

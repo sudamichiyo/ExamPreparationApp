@@ -15,29 +15,38 @@
             <fieldset>
                 <legend>問題文を入力して下さい</legend>
                 <div>
-                    <textarea name="question" id="question" cols="30" rows="10"><%= question.question%></textarea>
+                    <textarea name="question" id="question" cols="30" rows="10"  class="form-control"><%= question.question%></textarea>
                 </div>
                 <legend>選択肢を入力して下さい(※正解の選択肢にはチェックを入れて下さい)</legend>
                 <div>
-                    <input type="radio" id="choose1" name="choose" value="0" <%= chooses[0].correct ? "checked" : ""%>>
-                    <label for="choose1">ア<input type="text" id="choose-text1" name="choose_text" value="<%= chooses[0].choose %>"></label>
-
-                    <input type="radio" id="choose2" name="choose" value="1" <%= chooses[1].correct ? "checked" : ""%>>
-                    <label for="choose2">イ<input type="text" id="choose-text2" name="choose_text" value="<%= chooses[1].choose %>"></label>
-
-                    <input type="radio" id="choose3" name="choose" value="2" <%= chooses[2].correct ? "checked" : ""%>>
-                    <label for="choose3">ウ<input type="text" id="choose-text3" name="choose_text" value="<%= chooses[2].choose %>"></label>
-
-                    <input type="radio" id="choose4" name="choose" value="3" <%= chooses[3].correct ? "checked" : ""%>>
-                    <label for="choose4">エ<input type="text" id="choose-text4" name="choose_text" value="<%= chooses[3].choose %>"></label>
+                    <div class="p-2 d-flex flex-row align-items-center">
+                        <input class="form-check-input" type="radio" id="choose1" name="choose" value="0" <%= chooses[0].correct ? "checked" : ""%>>
+                        <label for="choose1" class="p-2">ア</label>
+                        <input type="text" id="choose-text1" name="choose_text" value="<%= chooses[0].choose %>"  class="form-control">
+                    </div>
+                    <div class="p-2 d-flex flex-row align-items-center">
+                        <input class="form-check-input" type="radio" id="choose2" name="choose" value="1" <%= chooses[1].correct ? "checked" : ""%>>
+                        <label for="choose2" class="p-2">イ</label>
+                        <input type="text" id="choose-text2" name="choose_text" value="<%= chooses[1].choose %>" class="form-control">
+                    </div>
+                    <div class="p-2 d-flex flex-row align-items-center">
+                        <input class="form-check-input" type="radio" id="choose3" name="choose" value="2" <%= chooses[2].correct ? "checked" : ""%>>
+                        <label for="choose3" class="p-2">ウ</label>
+                        <input type="text" id="choose-text3" name="choose_text" value="<%= chooses[2].choose %>" class="form-control">
+                    </div>
+                    <div class="p-2 d-flex flex-row align-items-center">
+                        <input class="form-check-input" type="radio" id="choose4" name="choose" value="3" <%= chooses[3].correct ? "checked" : ""%>>
+                        <label for="choose4" class="p-2">エ</label>
+                        <input type="text" id="choose-text4" name="choose_text" value="<%= chooses[3].choose %>" class="form-control">
+                    </div>
                 </div>
                 <div>
-                    <button type="submit">保存</button>
+                    <button type="submit" class="btn btn-primary mt-2 mb-2">保存</button>
                 </div>
             </fieldset>
         </form>
         <div>
-            <button onclick="location.href='/manage'">キャンセル</button>
+            <button onclick="location.href='/manage'" class="btn btn-secondary mt-2 mb-2">キャンセル</button>
         </div>
     </div>
   </body>

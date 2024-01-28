@@ -17,38 +17,38 @@
                 <input type="hidden" name="mode" value="<%= mode %>">
                 <legend>問題文</legend>
                 <div>
-                    <p><%= question.question %></p>
+                    <p class="p-2 mb-2"><%= question.question %></p>
                 </div>
                 <legend>選択肢(※正解だと思う選択肢にチェックを入れて下さい)</legend>
                 <div>
-                    <div>
-                        <input type="radio" id="choose1" name="choose" value="0">
-                        <label for="choose1">ア</label>
-                        <p><%= chooses[0].choose %></p>
+                    <div class="d-flex flex-row align-items-center form-check">
+                        <input class="form-check-input" type="radio" id="choose1" name="choose" value="0">
+                        <label for="choose1" class="p-2">ア</label>
+                        <p class="p-2"><%= chooses[0].choose %></p>
                     </div>
-                    <div>
-                        <input type="radio" id="choose2" name="choose" value="1">
-                        <label for="choose2">イ</label>
-                        <p><%= chooses[1].choose %></p>
+                    <div class="d-flex flex-row align-items-center form-check">
+                        <input class="form-check-input" type="radio" id="choose2" name="choose" value="1">
+                        <label for="choose2" class="p-2">イ</label>
+                        <p class="p-2"><%= chooses[1].choose %></p>
                     </div>
-                    <div>
-                        <input type="radio" id="choose3" name="choose" value="2">
-                        <label for="choose3">ウ</label>
-                        <p><%= chooses[2].choose %></p>
+                    <div class="d-flex flex-row align-items-center form-check">
+                        <input class="form-check-input" type="radio" id="choose3" name="choose" value="2">
+                        <label for="choose3" class="p-2">ウ</label>
+                        <p class="p-2"><%= chooses[2].choose %></p>
                     </div>
-                    <div>
-                        <input type="radio" id="choose4" name="choose" value="3">
-                        <label for="choose4">エ</label>
-                        <p><%= chooses[3].choose %></p>
+                    <div class="d-flex flex-row align-items-center form-check">
+                        <input class="form-check-input" type="radio" id="choose4" name="choose" value="3">
+                        <label for="choose4" class="p-2">エ</label>
+                        <p class="p-2"><%= chooses[3].choose %></p>
                     </div>
                 </div>
                 <div>
-                    <button type="submit">解答する</button>
+                    <button type="submit" class="btn btn-primary mt-2 mb-2">解答する</button>
                 </div>
             </fieldset>
         </form>
         <div>
-            <button onclick="location.href='/'">Topに戻る</button>
+            <button onclick="location.href='/'" class="btn btn-secondary mt-2 mb-2">Topに戻る</button>
         </div>
     </div>
   </body>
